@@ -1,7 +1,7 @@
 <img src="https://www.eduardopires.net.br/imagens/EquinoxLogoPequenoFundoBranco.png" alt="Equinox Project"> 
 
 
-What is the Equinox Project?
+What is the Equinox Project??
 =====================
 The Equinox Project is a open-source project written in .NET Core
 
