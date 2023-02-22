@@ -20,8 +20,6 @@ RUN dotnet build "Equinox.sln" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "Equinox.sln" -c Release -o /app/publish
-RUN pwd
-RUN ls
 
 FROM base AS final
 WORKDIR /app
