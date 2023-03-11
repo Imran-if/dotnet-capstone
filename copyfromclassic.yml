@@ -1,6 +1,8 @@
 variables:
 - name: BuildParameters.RestoreBuildProjects
   value: '**/*.sln'
+- name: BuildConfig
+  value: 'Release'
 name: $(date:yyyyMMdd)$(rev:.r)
 resources:
   repositories:
@@ -24,14 +26,14 @@ jobs:
     displayName: Build
     inputs:
       projects: $(BuildParameters.RestoreBuildProjects)
-      arguments: --configuration Release
+      arguments: --configuration $(BuildConfig)
   - task: DotNetCoreCLI@2
     displayName: Publish
     inputs:
       command: publish
       publishWebProjects: false
       projects: $(BuildParameters.RestoreBuildProjects)
-      arguments: --configuration Release --output $(build.artifactstagingdirectory)
+      arguments: --configuration $(BuildConfig) --output $(build.artifactstagingdirectory)
       zipAfterPublish: True
   - task: PublishBuildArtifacts@1
     displayName: Publish Artifact
