@@ -24,14 +24,14 @@ jobs:
     displayName: Build
     inputs:
       projects: $(BuildParameters.RestoreBuildProjects)
-      arguments: --configuration $(BuildConfiguration)
+      arguments: --configuration Release
   - task: DotNetCoreCLI@2
     displayName: Publish
     inputs:
       command: publish
       publishWebProjects: false
       projects: $(BuildParameters.RestoreBuildProjects)
-      arguments: --configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)
+      arguments: --configuration Release --output $(build.artifactstagingdirectory)
       zipAfterPublish: True
   - task: PublishBuildArtifacts@1
     displayName: Publish Artifact
